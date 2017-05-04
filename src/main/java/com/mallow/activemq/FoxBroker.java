@@ -23,7 +23,7 @@ public class FoxBroker extends BrokerFilter {
         try {
             String ip = producerExchange.getConnectionContext().getConnection().getRemoteAddress();
             String destinationName = messageSend.getDestination().getPhysicalName();
-            System.out.println("send_" + destinationName + " "  + ip);
+            logger.info("send_" + destinationName + " "  + ip);
         } catch (Exception e) {
             logger.error("activemq send log error: " + e, e);
         }
@@ -35,7 +35,7 @@ public class FoxBroker extends BrokerFilter {
         try {
             String destinationName = messageDispatch.getDestination().getPhysicalName();
             String consumerId = messageDispatch.getConsumerId().getConnectionId();
-            System.out.println("dispatch_" + destinationName + " " + consumerId);
+            logger.info("dispatch_" + destinationName + " " + consumerId);
         } catch (Exception e) {
             logger.error("activemq dispatch log error: " + e, e);
         }
@@ -47,7 +47,7 @@ public class FoxBroker extends BrokerFilter {
         try {
             String ip = consumerExchange.getConnectionContext().getConnection().getRemoteAddress();
             String destinationName = ack.getDestination().getPhysicalName();
-            System.out.println("ack_" + destinationName + " " + ip);
+            logger.info("ack_" + destinationName + " " + ip);
         } catch (Exception e) {
             logger.error("activemq consume log error: " + e, e);
 
