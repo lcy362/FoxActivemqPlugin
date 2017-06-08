@@ -35,7 +35,7 @@ public class LimitQueueSIzeBroker extends BrokerFilter {
         for (Destination dest : destinations) {
             DestinationStatistics stats = dest.getDestinationStatistics();
             if (stats != null) {
-                count = stats.getMessageSize().getCount();
+                count = stats.getMessages().getCount();
                 logger.info("size: " + count);
             }
         }
